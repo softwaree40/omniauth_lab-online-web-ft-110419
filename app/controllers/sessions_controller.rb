@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
     session[:omniauth_data] = request.env['omniauth.auth']
 
     # Ye olde redirect
+    byebug
     redirect_to root_path
   end
 end
