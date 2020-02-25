@@ -15,7 +15,11 @@ class SessionsController < ApplicationController
     # for demonstration purposes. We want to keep this data somewhere so that,
     # after redirect, we have access to the returned data
     session[:name] = request.env['omniauth.auth']['info']['nickname']
-    session[:omniauth_data] = request.env['omniauth.auth']
+    session[:omniauth_data] = request.env['omniauth.auth']['info']
+    
+    info = request.env['omniauth.auth']['info']
+    
+    user = User.create(username: info['nickname'], email: info['email'])
 
     # Ye olde redirect
     #byebug
