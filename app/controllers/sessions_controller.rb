@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   # This is required because of a quirk the "developer" authentication
   # strategy. We'll remove this when we move to a "real" provider.
-  skip_before_action :verify_authenticity_token, only: :create
+  # skip_before_action :verify_authenticity_token, only: :create
 
   def create
     # After entering a name and email value in the /auth/developer
